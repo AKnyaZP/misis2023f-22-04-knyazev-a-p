@@ -1,3 +1,7 @@
 add_executable(1873b "1873b.cpp")
 add_executable(1873c "1873c.cpp")
 add_executable(1692c "1692c.cpp")
+#add_executable(1899e "1899e.cpp")
+add_executable(1165b "1165b.cpp")
+add_executable(1352a "1352a.cpp")
+add_executable(1899b "1899b.cpp")
