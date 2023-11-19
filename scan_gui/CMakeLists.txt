@@ -1,0 +1,10 @@
+include_directories(.)
+add_executable (scan_gui "scan_gui.cpp" "dialog/ImGuiFileDialog/ImGuiFileDialog.cpp" "scan_gui.h")
+target_link_libraries(scan_gui imgui::imgui glfw glad::glad unofficial::gl3w::gl3w)
+#target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+#target_link_libraries(scan_gui PRIVATE opencv_ml opencv_dnn opencv_core opencv_flann)
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET scan_gui PROPERTY CXX_STANDARD 20)
+endif()
+
+#install (TARGETS scan_gui RUNTIME)
