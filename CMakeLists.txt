@@ -28,5 +28,6 @@ find_package(gl3w CONFIG REQUIRED)
 
 add_subdirectory ("scan_gui")
 add_subdirectory ("prj.codeforces")
+add_subdirectory ("dialog")
 
 #install(IMPORTED_RUNTIME_ARTIFACTS ${OpenCV_LIBS} glfw unofficial::gl3w::gl3w RUNTIME)

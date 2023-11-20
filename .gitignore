@@ -3,3 +3,4 @@ out/
 bin.dbg/
 .vs/
 prj.codeforces/1899e.cpp
+dialog/ImGuiFileDialog/dirent

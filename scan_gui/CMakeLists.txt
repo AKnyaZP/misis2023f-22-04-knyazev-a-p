@@ -1,5 +1,5 @@
 include_directories(.)
-add_executable (scan_gui "scan_gui.cpp" "dialog/ImGuiFileDialog/ImGuiFileDialog.cpp" "scan_gui.h")
+add_executable (scan_gui "scan_gui.cpp" "misis2023f-22-04-knyazev-a-p/dialog/ImGuiFileDialog/ImGuiFileDialog.cpp" "scan_gui.h")
 target_link_libraries(scan_gui imgui::imgui glfw glad::glad unofficial::gl3w::gl3w)
 #target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 #target_link_libraries(scan_gui PRIVATE opencv_ml opencv_dnn opencv_core opencv_flann)
