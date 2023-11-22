@@ -1,6 +1,8 @@
 bin.rel/
 out/
 bin.dbg/
-.vs/
+*.vs/
 prj.codeforces/1899e.cpp
-dialog/ImGuiFileDialog/dirent
+dialog/.git/
+photo_editors/ImGuiFileDialog/dirent
+photo_editors/ImGuiFileDialog/stb
