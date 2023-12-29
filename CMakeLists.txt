@@ -18,19 +18,18 @@ enable_testing()
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 
-#find_package(imgui REQUIRED)
-#find_package(glfw3 REQUIRED)
-#find_package(glad REQUIRED)
-#find_package(gl3w CONFIG REQUIRED)
+find_package(imgui REQUIRED)
+find_package(glfw3 REQUIRED)
+find_package(glad REQUIRED)
+find_package(gl3w CONFIG REQUIRED)
 find_package(OpenCV REQUIRED)
-find_package(OpenGL REQUIRED)
 
 
 #include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 add_subdirectory ("scan")
 add_subdirectory ("prj.codeforces")
-#add_subdirectory ("photo_editors")
+add_subdirectory ("prj.cw")
 
 #install(IMPORTED_RUNTIME_ARTIFACTS ${OpenCV_LIBS} glfw unofficial::gl3w::gl3w RUNTIME)
 

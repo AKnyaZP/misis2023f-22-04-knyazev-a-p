@@ -3,7 +3,6 @@
 
 #include<iostream>
 #include <opencv2/opencv.hpp>
-#include <GL/gl3w.h>
 #include <string>
 //#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h"
 // TODO: Reference additional headers your program requires here.

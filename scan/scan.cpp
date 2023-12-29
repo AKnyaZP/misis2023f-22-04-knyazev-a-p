@@ -1,8 +1,6 @@
 ﻿#include <scan.h>
 
 int main() {
-	cv::Mat image = cv::imread('image.png', cv::IMREAD_COLOR);
-	if (image.empty())
-		std::cerr << "file is empty";
-		return -1;
+	cv::Mat image = cv::imread("images_for_scan/example.png", cv::IMREAD_COLOR);
+	cv::imshow("image", image);
 }
