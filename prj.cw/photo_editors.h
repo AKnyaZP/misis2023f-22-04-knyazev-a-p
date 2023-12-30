@@ -16,15 +16,15 @@
 #include <ctime>
 #include <algorithm>
 
-class Editor {
-
-public:
-    Editor() = default;
-    Editor(const Editor&) {}
-    ~Editor() = default;
-
-
-};
+//class Editor {
+//
+//public:
+//    Editor() = default;
+//    Editor(const Editor&) {}
+//    ~Editor() = default;
+//
+//
+//};
 
 
 

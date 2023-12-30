@@ -23,9 +23,7 @@ find_package(glfw3 REQUIRED)
 find_package(glad REQUIRED)
 find_package(gl3w CONFIG REQUIRED)
 find_package(OpenCV REQUIRED)
-
-
-#include_directories( ${OpenCV_INCLUDE_DIRS} )
+find_package(Tesseract CONFIG REQUIRED)
 
 add_subdirectory ("scan")
 add_subdirectory ("prj.codeforces")

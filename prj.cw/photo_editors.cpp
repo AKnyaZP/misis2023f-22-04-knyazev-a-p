@@ -38,7 +38,7 @@ int main()
     windowflag |= ImGuiWindowFlags_NoBringToFrontOnFocus;
 
     io.FontGlobalScale = 2.0f;
-    
+
     Image image;
     Flag flag;
     const char* filters = "Image files (*.jpg){.jpg}";
@@ -64,7 +64,7 @@ int main()
 
         ImGui::SetNextWindowPos({ 0, 0 });
         ImGui::SetNextWindowSize({ 1920, 1080 });
-   
+
 
         ImGui::Begin("PhotoEditor (Main window)", NULL, windowflag);
 
@@ -80,7 +80,7 @@ int main()
 
                 if (ImGui::MenuItem("Close", "Ctrl+W")) { flag.flag_for_tool = true; }
 
-               
+
 
                 ImGui::EndMenu();
             }
@@ -134,15 +134,15 @@ int main()
 
         // dialog for open image
         if (flag.dialog) {
-            ImGuiFileDialog::Instance()->OpenDialog("ChooseFileDlgKey", "Choose a File", filters, ".", 1, nullptr, ImGuiFileDialogFlags_Modal); 
+            ImGuiFileDialog::Instance()->OpenDialog("ChooseFileDlgKey", "Choose a File", filters, ".", 1, nullptr, ImGuiFileDialogFlags_Modal);
             flag.dialog = false;
         }
 
         ImGuiFileDialog::Instance()->SetFileStyle(IGFD_FileStyleByExtention, ".jpg", ImVec4(0.0f, 1.0f, 1.0f, 0.9f));
-       
-        if (ImGuiFileDialog::Instance()->Display("ChooseFileDlgKey", ImGuiFileDialogFlags_ConfirmOverwrite))
+
+        if (ImGuiFileDialog::Instance()->Display("ChooseFileDlgKey", ImGuiFileDialogFlags_ConfirmOverwrite | ImGuiWindowFlags_NoCollapse))
         {
-            
+
             if (ImGuiFileDialog::Instance()->IsOk())
             {
                 filePathName = ImGuiFileDialog::Instance()->GetFilePathName();
@@ -213,25 +213,25 @@ int main()
             ImGui::EndGroup();
             ImGui::PopItemWidth();
         }
-        
+
         ImGui::SetCursorPos(ImVec2(((ImGui::GetWindowWidth()) / 3), ((ImGui::GetWindowHeight()) / 3) - 50));
 
         if (file_name != "") {
-            
+
             if (image.blur <= 0) {
                 image.blur = 1;
             }
             ImGui::Begin("Image", NULL, ImGuiWindowFlags_NoCollapse);
 
-            
-           
+
+
             image.show_image_imgui(image.create_texture(image.create_image(file_name)));
             flag.if_image_is_open = true;
 
             ImGui::End();
-            
+
         }
-        
+
         if (flag.flag_for_tool && flag.if_image_is_open) {
             ImGui::SetNextWindowPos(ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowContentRegionMax().x / 2.0f, ImGui::GetWindowPos().y + ImGui::GetWindowContentRegionMax().y / 2.0f), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
 
@@ -262,9 +262,9 @@ int main()
             }
 
             ImGui::EndPopup();
-            
+
         }
-            
+
         if (flag.flag_for_save_dialog) {
             ImGuiFileDialog::Instance()->OpenDialog("ChooseFolderDlg", "Choose Folder", nullptr, ".");
             // Отобразить диалоговое окно сохранения файла  
@@ -281,14 +281,14 @@ int main()
                 std::strftime(dateTimeString, sizeof(dateTimeString), "%Y-%m-%d_%H-%M", localTime);
 
                 std::string saveFileName = std::string(dateTimeString) + "_photo_editor_image.jpg";
-     
+
 
                 cv::imwrite(FPName + "/" + saveFileName, image.RGBAtoBGR(image.create_image(file_name)));
                 flag.flag_success = true;
             }
             ImGuiFileDialog::Instance()->Close();
             flag.flag_for_save_dialog = false;
-            
+
         }
 
         if (flag.flag_success == true && flag.flag_for_save_dialog == false) {

@@ -4,17 +4,18 @@
 #include<iostream>
 #include <opencv2/opencv.hpp>
 #include <string>
+#include <tesseract/baseapi.h>
 //#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h"
 // TODO: Reference additional headers your program requires here.
 
-class Image {
-public:
-    Image() {}
-    Image(const Image&) = default;
-    Image(Image&&) = default;
-    ~Image() = default;
-
-
-private:
-    std::string image_path;
-};
+//class Image {
+//public:
+//    Image() {}
+//    Image(const Image&) = default;
+//    Image(Image&&) = default;
+//    ~Image() = default;
+//
+//
+//private:
+//    std::string image_path;
+//};

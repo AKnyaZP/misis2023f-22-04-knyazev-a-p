@@ -1,7 +1,8 @@
-#include <opencv2/opencv.hpp>
-#include <string>
-#include <iosfwd>
-#include <GL/gl3w.h>
+//#include <opencv2/opencv.hpp>
+//#include <string>
+//#include <iosfwd>
+//#include <GL/gl3w.h>
+#include <photo_editors.h>
 
 class Image {
 public:
