@@ -54,6 +54,9 @@ public:
         // Загрузка изображения
         cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
 
+        //cv::cvtColor(img, img, cv::COLOR_BGR2GRAY);
+        cv::Mat resized_img;
+        cv::resize(img, resized_img, cv::Size(), 2, 2, cv::INTER_LINEAR);
         // Создание объекта tesseract
         tesseract::TessBaseAPI* ocr = new tesseract::TessBaseAPI();
 
@@ -64,7 +67,7 @@ public:
         }
 
         // Установка изображения для распознавания
-        ocr->SetImage(img.data, img.cols, img.rows, 3, img.step);
+        ocr->SetImage(resized_img.data, resized_img.cols, resized_img.rows, 3, resized_img.step);
 
         // Получение распознанного текста
         char* text = ocr->GetUTF8Text();
