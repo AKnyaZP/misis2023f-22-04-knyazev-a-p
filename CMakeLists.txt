@@ -24,6 +24,7 @@ find_package(glad REQUIRED)
 find_package(gl3w CONFIG REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Tesseract CONFIG REQUIRED)
+find_package(Leptonica CONFIG REQUIRED)
 
 add_subdirectory ("scan")
 add_subdirectory ("prj.codeforces")
