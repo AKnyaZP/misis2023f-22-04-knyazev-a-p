@@ -6,6 +6,7 @@
 #include <string>
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
+#include <fstream>
 //#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h"
 // TODO: Reference additional headers your program requires here.
 
@@ -26,56 +27,59 @@ public:
             return;
         }
 
-        // Преобразование изображения в оттенки серого
-        cv::Mat gray_img;
-        cv::cvtColor(img, gray_img, cv::COLOR_BGR2GRAY);
+        cv::Mat gray;
+        cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
 
-        // Усиление контраста изображения
-        double alpha = 1.0; // Контрастное коэффициент
-        double beta = 0;   // Коэффициент смещения
-        cv::Mat contrast_img;
-        img.convertTo(contrast_img, -1, alpha, beta);
+        // Применение размытия
+        cv::Mat blurred;
+        cv::GaussianBlur(gray, blurred, cv::Size(5, 5), 0);
 
-        //// Улучшаем разрешение изображения
-        //cv::Mat resized_img;
-        //cv::resize(contrast_img, resized_img, cv::Size(), 2, 2, cv::INTER_LINEAR);
+        // Сохранение исходного изображения
+        cv::Mat orig = img.clone();
 
-        /*cv::Mat noise;
-        cv::randn(noise, cv::Scalar::all(0), cv::Scalar::all(20));
-        cv::Mat noisyImage = contrast_img.clone();
-        noisyImage += noise;*/
-
-        cv::imshow("image", contrast_img);
+        // Отображение результата
+        cv::imshow("Scanned Document", orig);
         cv::waitKey(0);
 
     }
 
     void image_ocr() {
+        std::ofstream file("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/scan/output.txt");
+        if (!file) {
+            std::cerr << "Unable to open file for writing\n";
+        }
+
+        std::cout << "download image... \n";
         // Загрузка изображения
         cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
+        if (img.empty()) {
+            std::cerr << "Error! Image wasn't loaded \n";
+        }
+        else
+            std::cout << "Done \n";
 
-        //cv::cvtColor(img, img, cv::COLOR_BGR2GRAY);
-        cv::Mat resized_img;
-        cv::resize(img, resized_img, cv::Size(), 2, 2, cv::INTER_LINEAR);
-        // Создание объекта tesseract
-        tesseract::TessBaseAPI* ocr = new tesseract::TessBaseAPI();
-
-        // Инициализация tesseract для английского языка
-        if (ocr->Init(NULL, "rus+eng")) {
+        std::cout << "image processing \n";
+        tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
+        // Initialize tesseract-ocr with English and Russian languages
+        if (api->Init(NULL, "rus+eng")) {
             fprintf(stderr, "Could not initialize tesseract.\n");
             exit(1);
         }
 
-        // Установка изображения для распознавания
-        ocr->SetImage(resized_img.data, resized_img.cols, resized_img.rows, 3, resized_img.step);
+        // Set image data
+        api->SetImage((uchar*)img.data, img.cols, img.rows, img.channels(), img.step);
 
-        // Получение распознанного текста
-        char* text = ocr->GetUTF8Text();
-        printf("OCR output:\n%s", text);
+        // Get OCR result
+        char* outText = api->GetUTF8Text();
+        printf("OCR output:\n%s", outText);
+        file << "OCR output:\n" << outText << "\n";
 
-        // Освобождение ресурсов
-        delete[] text;
-        ocr->End();
+        // Clean up
+        api->End();
+        delete[] outText;
+        delete api;
+        file.close();
+
     }
 
 private:
