@@ -1,3 +1,7 @@
+/**
+ * @file
+ * @brief Файл photo_editors.h, содержащий класс Editor и его методы.
+ */
 #define IMGUI_DEFINE_MATH_OPERATORS // Определение математических операторов для ImGui
 #include "imgui.h" // Подключение библиотеки ImGui
 #include <iosfwd> // Подключение заголовочного файла iosfwd для работы с потоками ввода-вывода
@@ -15,40 +19,63 @@
 #include <ctime> // Подключение библиотеки ctime для работы со временем
 #include <algorithm> // Подключение библиотеки algorithm для работы с алгоритмами
 
-class Editor { // Объявление класса Editor
+/**
+ * Объявление класса Editor
+ */
+class Editor {
 
 public:
-   Editor(GLFWwindow* window) : window(window) { // Конструктор класса Editor
-       glfwMakeContextCurrent(window); // Установка текущего контекста GLFW
-       gl3wInit(); // Инициализация gl3w
-       glfwSwapInterval(1); // Установка интервала обмена буферов GLFW
-       gladLoadGL(); // Загрузка функций OpenGL с помощью glad
+    /**
+     * Конструктор класса Editor
+     * @param window Указатель на окно GLFW
+     */
+    Editor(GLFWwindow* window) : window(window) {
+        glfwMakeContextCurrent(window);
+        gl3wInit();
+        glfwSwapInterval(1);
+        gladLoadGL();
 
-       IMGUI_CHECKVERSION(); // Проверка версии ImGui
-       ImGui::CreateContext(); // Создание нового контекста ImGui
-       //ImGui::StyleColorsDark(); // Установка темного стиля для ImGui
-       ImGui_ImplOpenGL3_Init("#version 330"); // Инициализация реализации ImGui для OpenGL
-       ImGui_ImplGlfw_InitForOpenGL(window, true); // Инициализация реализации ImGui для GLFW
-   };
-   Editor(const Editor&) = default; // Конструктор копирования класса Editor
-   Editor(Editor&&) = default; // Конструктор перемещения класса Editor
-   ~Editor() = default; // Деструктор класса Editor
-   
-   void render() { // Метод render класса Editor
-       ImGui::Render(); // Рендеринг ImGui
-       int display_w, display_h; // Объявление переменных для ширины и высоты области дисплея
-       glfwGetFramebufferSize(window, &display_w, &display_h); // Получение размеров области дисплея
-       glViewport(0, 0, display_w, display_h); // Установка области просмотра
-       glClearColor(0.f, 0.f, 0.3, 1.0f); // Установка цвета очистки
-       glClear(GL_COLOR_BUFFER_BIT); // Очистка буфера цвета
-       ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData()); // Рендеринг данных рисования ImGui
+        IMGUI_CHECKVERSION();
+        ImGui::CreateContext();
+        ImGui_ImplOpenGL3_Init("#version 330");
+        ImGui_ImplGlfw_InitForOpenGL(window, true);
+    };
 
-       glfwSwapBuffers(window); // Обмен буферов GLFW
-   }
+    /**
+     * Конструктор копирования класса Editor
+     */
+    Editor(const Editor&) = default;
 
-   
+    /**
+     * Конструктор перемещения класса Editor
+     */
+    Editor(Editor&&) = default;
+
+    /**
+     * Деструктор класса Editor
+     */
+    ~Editor() = default;
+
+    /**
+     * Метод render класса Editor
+     */
+    void render() {
+        ImGui::Render();
+        int display_w, display_h;
+        glfwGetFramebufferSize(window, &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glClearColor(0.f, 0.f, 0.3, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        glfwSwapBuffers(window);
+    }
+
 private:
-   GLFWwindow* window; // Указатель на окно GLFW
+    /**
+     * Указатель на окно GLFW
+     */
+    GLFWwindow* window;
 };
 
 

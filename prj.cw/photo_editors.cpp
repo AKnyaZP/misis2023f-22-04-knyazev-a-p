@@ -1,12 +1,16 @@
-﻿#include <include/photoeditor/photo_editors.h>
+﻿/**
+ * @file
+ * @brief Файл photo_editors.cpp, содержащий класс int main(), в котором и реализовано приложение.
+ */
+#include <include/photoeditor/photo_editors.h>
 #include <include/image/image.h>
 #include <flags.cpp>
 
 int main()
 {
     /**
- * @brief Инициализирует библиотеку GLFW и проверяет, была ли инициализация успешной
- */
+    * @brief Инициализирует библиотеку GLFW и проверяет, была ли инициализация успешной
+    */
     if (!glfwInit())
         return -1;
 
@@ -92,18 +96,45 @@ int main()
 
     while (!glfwWindowShouldClose(window))
     {
+        /**
+ * @brief Опрашивает системные события
+ */
         glfwPollEvents();
 
+        /**
+         * @brief Подготавливает ImGui для нового кадра OpenGL
+         */
         ImGui_ImplOpenGL3_NewFrame();
+
+        /**
+         * @brief Подготавливает ImGui для нового кадра GLFW
+         */
         ImGui_ImplGlfw_NewFrame();
+
+        /**
+         * @brief Подготавливает ImGui для нового кадра
+         */
         ImGui::NewFrame();
 
+        /**
+         * @brief Устанавливает следующую позицию окна ImGui
+         */
         ImGui::SetNextWindowPos({ 0, 0 });
+
+        /**
+         * @brief Устанавливает следующий размер окна ImGui
+         */
         ImGui::SetNextWindowSize({ 1920, 1080 });
 
 
+        /**
+         * @brief создаём окно ImGui
+         */
         ImGui::Begin("PhotoEditor (Main window)", NULL, windowflag);
 
+        /**
+         * @brief создаём меню-бар и кнопки для него
+         */
         if (ImGui::BeginMenuBar())
         {
             if (ImGui::BeginMenu("file")) {
@@ -140,7 +171,9 @@ int main()
         }
 
 
-        //Keys
+        /**
+         * реализовываем горячие клавиши
+         */
         if ((ImGui::IsKeyDown(ImGuiKey_RightCtrl) || ImGui::IsKeyDown(ImGuiKey_LeftCtrl)) && ImGui::IsKeyDown(ImGuiKey_O)) {
             flag.dialog = true;
         }
@@ -168,7 +201,9 @@ int main()
             image.default_method();
         }
 
-        // dialog for open image
+        /**
+         * создание диалогового окна для открытия изображения .jpg 
+         */
         if (flag.dialog) {
             ImGuiFileDialog::Instance()->OpenDialog("ChooseFileDlgKey", "Choose a File", filters, ".", 1, nullptr, ImGuiFileDialogFlags_Modal);
             flag.dialog = false;
@@ -187,11 +222,13 @@ int main()
 
             ImGuiFileDialog::Instance()->Close();
         }
-        // close dialog
+        
 
 
         std::string file_name = filePathName;
-
+        /**
+         * реализовываем ползунки, для установки значений параметров изображений
+         */
         if ((flag.sl_par)) {
 
             ImGui::SetCursorPos(ImVec2(10, (ImGui::GetWindowHeight()) / 3));
@@ -222,6 +259,9 @@ int main()
             ImGui::PopItemWidth();
         }
 
+        /**
+         * реализовываем текстовые поля, для установки значений параметров изображений
+         */
         if (!(flag.sl_par) && (flag.t_par)) {
             ImGui::SetCursorPos(ImVec2(10, (ImGui::GetWindowHeight()) / 3));
 
@@ -250,6 +290,7 @@ int main()
             ImGui::PopItemWidth();
         }
 
+
         ImGui::SetCursorPos(ImVec2(((ImGui::GetWindowWidth()) / 3), ((ImGui::GetWindowHeight()) / 3) - 50));
 
         if (file_name != "") {
@@ -257,13 +298,21 @@ int main()
             if (image.blur <= 0) {
                 image.blur = 1;
             }
+            /**
+            * Начинает новую область окна ImGui с заголовком "Image". Флаг ImGuiWindowFlags_NoCollapse гарантирует, что окно не может быть свернуто.
+            */
             ImGui::Begin("Image", NULL, ImGuiWindowFlags_NoCollapse);
-
-
-
+            /**
+             * Выводит изображение на экран. Метод create_texture используется для создания текстуры изображения, а метод show_image_imgui - для отображения этой текстуры.
+             */
             image.show_image_imgui(image.create_texture(image.create_image(file_name)));
+            /**
+            * Устанавливает флаг if_image_is_open в true, указывая, что изображение открыто.
+            */
             flag.if_image_is_open = true;
-
+            /**
+            * Заканчивает область окна, которую мы начали ранее.
+            */
             ImGui::End();
 
         }
@@ -272,6 +321,9 @@ int main()
             ImGui::SetNextWindowPos(ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowContentRegionMax().x / 2.0f, ImGui::GetWindowPos().y + ImGui::GetWindowContentRegionMax().y / 2.0f), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
 
             ImGui::SetNextWindowPos(ImVec2(100, 200));
+            /**
+            * Открывает всплывающее окно под названием "Notification(exit)".
+            */
             ImGui::OpenPopup("Notification(exit)", ImGuiWindowFlags_NoResize);
         }
 
@@ -279,7 +331,9 @@ int main()
             return 0;
 
         if (flag.flag_for_tool) {
-
+            /**
+            * Начинает модальное всплывающее окно под названием "Notification(exit)".
+            */
             (ImGui::BeginPopupModal("Notification(exit)"));
             ImGui::Text("Are you sure you want to leave");
             ImGui::Separator();
@@ -296,43 +350,67 @@ int main()
             if (ImGui::Button("Close notification")) {
                 flag.flag_for_tool = false;
             }
-
+            /**
+            * Закрываем модальное всплывающее окно под названием "Notification(exit)".
+            */
             ImGui::EndPopup();
 
         }
 
         if (flag.flag_for_save_dialog) {
             ImGuiFileDialog::Instance()->OpenDialog("ChooseFolderDlg", "Choose Folder", nullptr, ".");
-            // Отобразить диалоговое окно сохранения файла  
+            // Отображаем диалоговое окно сохранения файла  
         }
-
+        /**
+         * Проверяем, отображается ли диалоговое окно для выбора папки. Если да, то выполняются действия внутри этого блока кода.
+         */
         if (ImGuiFileDialog::Instance()->Display("ChooseFolderDlg")) {
             if (ImGuiFileDialog::Instance()->IsOk()) {
+                /**
+               * Получаем полный путь к выбранному файлу.
+               */
                 std::string FPName = ImGuiFileDialog::Instance()->GetFilePathName();
 
                 std::time_t currentTime = std::time(nullptr);
                 std::tm* localTime = std::localtime(&currentTime);
 
+                /**
+                * Преобразуем локальное время в строку формата "ГГГГ-ММ-ДД_чч-мм".
+                */
                 char dateTimeString[20];
                 std::strftime(dateTimeString, sizeof(dateTimeString), "%Y-%m-%d_%H-%M", localTime);
 
+                /**
+                * Создаём имя файла, добавляя к дате и времени суффикс "_photo_editor_image.jpg".
+                */
                 std::string saveFileName = std::string(dateTimeString) + "_photo_editor_image.jpg";
 
-
+                /**
+                * Сохраняем изображение в выбранную папку с созданным именем файла.
+                */
                 cv::imwrite(FPName + "/" + saveFileName, image.RGBAtoBGR(image.create_image(file_name)));
                 flag.flag_success = true;
             }
+            /**
+            * Закрываем диалоговое окно для выбора папки.
+            */
             ImGuiFileDialog::Instance()->Close();
             flag.flag_for_save_dialog = false;
 
         }
 
+        /**
+         * Проверяем, были ли операция успешной и не отображается ли диалоговое окно для выбора папки. Если оба условия выполняются, то открывается всплывающее окно с сообщением о успешном сохранении.
+         */
         if (flag.flag_success == true && flag.flag_for_save_dialog == false) {
             ImGui::SetNextWindowPos(ImVec2(ImGui::GetWindowPos().x + ImGui::GetWindowContentRegionMax().x / 2.0f, ImGui::GetWindowPos().y + ImGui::GetWindowContentRegionMax().y / 2.0f), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
 
             ImGui::OpenPopup("Notification(save)");
         }
 
+        /**
+         * Проверяем, была ли операция успешной. Если да, то открывается модальное всплывающее окно с сообщением о успешном сохранении.
+         */
         if (flag.flag_success) {
             (ImGui::BeginPopupModal("Notification(save)"));
             ImGui::Text("Image is save successful");
@@ -343,11 +421,18 @@ int main()
             }
             ImGui::EndPopup();
         }
-
+        /**
+         * Заканчиваем область окна, которую мы начали ранее.
+         */
         ImGui::End();
+        /**
+         * рендерим приложение
+         */
         editor.render();
     }
-
+    /**
+     * Завершаем работу с библиотеками ImGui.
+     */
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
