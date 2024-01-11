@@ -4,45 +4,83 @@
 
 int main()
 {
+    /**
+ * @brief Инициализирует библиотеку GLFW и проверяет, была ли инициализация успешной
+ */
     if (!glfwInit())
         return -1;
 
+    /**
+     * @brief Устанавливает версию OpenGL для контекста окна
+     */
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+    /**
+     * @brief Устанавливает профиль OpenGL для контекста окна
+     */
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    /**
+     * @brief Разрешает изменение размера окна
+     */
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 
+    /**
+     * @brief Создает новое окно с заданными параметрами
+     */
     GLFWwindow* window = glfwCreateWindow(1920, 1080, "Photo Editor", NULL, NULL);
 
+    /**
+     * @brief Проверяет, было ли создание окна успешным
+     */
     if (window == NULL)
         return 1;
 
-    glfwMakeContextCurrent(window);
-    gl3wInit();
-    glfwSwapInterval(1);
-    gladLoadGL();
+    /**
+     * @brief Создает новый экземпляр редактора с созданным окном
+     */
+    Editor editor(window);
 
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    //ImGui::StyleColorsDark();
-    ImGui_ImplOpenGL3_Init("#version 330");
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    /**
+     * @brief Получает доступ к объекту ввода/вывода ImGui
+     */
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
 
-
+    /**
+     * @brief Устанавливает флаги окна ImGui
+     */
     ImGuiWindowFlags windowflag = 0;
     windowflag |= ImGuiWindowFlags_NoBackground;
     windowflag |= ImGuiWindowFlags_NoTitleBar;
     windowflag |= ImGuiWindowFlags_MenuBar;
     windowflag |= ImGuiWindowFlags_NoBringToFrontOnFocus;
 
+    /**
+     * @brief Устанавливает масштаб шрифта ImGui
+     */
     io.FontGlobalScale = 2.0f;
 
+    /**
+     * @brief Создает новые экземпляры классов Flag и Image
+     */
     Flag flag;
     Image image;
+
+    /**
+     * @brief Устанавливает фильтры файлов для диалоговых окон
+     */
     const char* filters = "Image files (*.jpg){.jpg}";
+
+    /**
+     * @brief Создает новую строку для хранения пути к файлу
+     */
     static std::string filePathName = "";
+
+    /**
+     * @brief Инициализирует флаги для управления параметрами и диалогами
+     */
     flag.sl_par = false;
     flag.t_par = false;
     flag.dialog = false;
@@ -50,8 +88,6 @@ int main()
     flag.flag_for_tool = false;
     flag.if_image_is_open = false;
     flag.flag_success = false;
-
-
 
 
     while (!glfwWindowShouldClose(window))
@@ -308,21 +344,8 @@ int main()
             ImGui::EndPopup();
         }
 
-
-
-
-
-
         ImGui::End();
-        ImGui::Render();
-        int display_w, display_h;
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClearColor(0.f, 0.f, 0.3, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        glfwSwapBuffers(window);
+        editor.render();
     }
 
     ImGui_ImplOpenGL3_Shutdown();
@@ -333,7 +356,3 @@ int main()
 
     return 0;
 }
-
-
-
-
