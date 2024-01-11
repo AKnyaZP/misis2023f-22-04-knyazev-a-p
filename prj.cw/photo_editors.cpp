@@ -1,5 +1,5 @@
-﻿#include <photo_editors.h>
-#include <Image.h>
+﻿#include <include/photoeditor/photo_editors.h>
+#include <include/image/image.h>
 #include <flags.cpp>
 
 int main()
@@ -39,8 +39,8 @@ int main()
 
     io.FontGlobalScale = 2.0f;
 
-    Image image;
     Flag flag;
+    Image image;
     const char* filters = "Image files (*.jpg){.jpg}";
     static std::string filePathName = "";
     flag.sl_par = false;

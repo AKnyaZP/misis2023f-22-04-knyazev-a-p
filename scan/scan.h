@@ -61,7 +61,7 @@ public:
         std::cout << "image processing \n";
         tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
         // Initialize tesseract-ocr with English and Russian languages
-        if (api->Init(NULL, "rus+eng")) {
+        if (api->Init("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/scan/train", "rus+eng")) {
             fprintf(stderr, "Could not initialize tesseract.\n");
             exit(1);
         }
