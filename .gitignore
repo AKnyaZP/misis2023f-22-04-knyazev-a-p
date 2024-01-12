@@ -2,6 +2,7 @@ bin.rel/
 out/
 bin.dbg/
 *.vs/
+build/
 prj.codeforces/1899e.cpp
 dialog/.git/
 photo_editors/ImGuiFileDialog/dirent
