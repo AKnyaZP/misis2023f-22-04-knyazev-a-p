@@ -44,7 +44,7 @@ public:
     }
 
     void image_ocr() {
-        std::ofstream file("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/scan/output.txt");
+        std::ofstream file("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/scan/output.txt");
         if (!file) {
             std::cerr << "Unable to open file for writing\n";
         }
@@ -61,13 +61,15 @@ public:
         std::cout << "image processing \n";
         tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
         // Initialize tesseract-ocr with English and Russian languages
-        if (api->Init("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/scan/train", "rus+eng")) {
+        if (api->Init("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/scan/train", "rus+eng")) {
             fprintf(stderr, "Could not initialize tesseract.\n");
             exit(1);
         }
 
         // Set image data
         api->SetImage((uchar*)img.data, img.cols, img.rows, img.channels(), img.step);
+
+        api->SetRectangle(0, 0, img.cols, img.rows);
 
         // Get OCR result
         char* outText = api->GetUTF8Text();

@@ -26,9 +26,13 @@ find_package(OpenCV REQUIRED)
 find_package(Tesseract CONFIG REQUIRED)
 find_package(Leptonica CONFIG REQUIRED)
 
-add_subdirectory ("scan")
 add_subdirectory ("prj.codeforces")
 add_subdirectory ("prj.cw")
 
+
+
+#install(DIRECTORY ${CMAKE_SOURCE_DIR}/prj.cw/scan/image_for_scan/
+#        DESTINATION image_for_scan
+#        )
 #install(IMPORTED_RUNTIME_ARTIFACTS ${OpenCV_LIBS} glfw unofficial::gl3w::gl3w RUNTIME)
 

@@ -1,5 +1,5 @@
 include_directories(.)
-add_executable (my_scan "scan.cpp" "scan.h")
+add_executable (my_scan "scan.cpp" "include/scan/scan.h")
 target_link_libraries(my_scan PRIVATE  opencv_core opencv_imgproc opencv_highgui Tesseract::libtesseract leptonica)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
