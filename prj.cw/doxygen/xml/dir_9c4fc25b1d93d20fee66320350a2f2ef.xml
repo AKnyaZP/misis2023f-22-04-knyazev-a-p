@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_9c4fc25b1d93d20fee66320350a2f2ef" kind="dir">
+    <compoundname>prj.cw</compoundname>
+    <innerdir refid="dir_2a419cb70b8fe33fb217858aab4b723a">prj.cw/photo_editor</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="prj.cw/"/>
+  </compounddef>
+</doxygen>

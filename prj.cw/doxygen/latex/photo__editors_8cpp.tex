@@ -1,0 +1,123 @@
+\doxysection{prj.\+cw/photo\+\_\+editor/photo\+\_\+editors.cpp File Reference}
+\hypertarget{photo__editors_8cpp}{}\label{photo__editors_8cpp}\index{prj.cw/photo\_editor/photo\_editors.cpp@{prj.cw/photo\_editor/photo\_editors.cpp}}
+
+
+Файл \doxylink{photo__editors_8cpp}{photo\+\_\+editors.\+cpp}, содержащий класс int \doxylink{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}, в котором и реализовано приложение.  
+
+
+{\ttfamily \#include $<$include/photoeditor/photo\+\_\+editors.\+h$>$}\newline
+{\ttfamily \#include $<$include/image/image.\+h$>$}\newline
+{\ttfamily \#include $<$include/flags/flags.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл \doxylink{photo__editors_8cpp}{photo\+\_\+editors.\+cpp}, содержащий класс int \doxylink{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}, в котором и реализовано приложение. 
+
+
+
+Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+editors.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{photo\_editors.cpp@{photo\_editors.cpp}!main@{main}}
+\index{main@{main}!photo\_editors.cpp@{photo\_editors.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Инициализирует библиотеку GLFW и проверяет, была ли инициализация успешной
+
+Устанавливает версию Open\+GL для контекста окна
+
+Устанавливает профиль Open\+GL для контекста окна
+
+Разрешает изменение размера окна
+
+Создает новое окно с заданными параметрами
+
+Проверяет, было ли создание окна успешным
+
+Создает новый экземпляр редактора с созданным окном
+
+Получает доступ к объекту ввода/вывода Im\+Gui
+
+Устанавливает флаги окна Im\+Gui
+
+Устанавливает масштаб шрифта Im\+Gui
+
+Создает новые экземпляры классов Flag и Image
+
+Устанавливает фильтры файлов для диалоговых окон
+
+Создает новую строку для хранения пути к файлу
+
+Инициализирует флаги для управления параметрами и диалогами
+
+Опрашивает системные события
+
+Подготавливает Im\+Gui для нового кадра Open\+GL
+
+Подготавливает Im\+Gui для нового кадра GLFW
+
+Подготавливает Im\+Gui для нового кадра
+
+Устанавливает следующую позицию окна Im\+Gui
+
+Устанавливает следующий размер окна Im\+Gui
+
+создаём окно Im\+Gui
+
+создаём меню-\/бар и кнопки для него
+
+реализовываем горячие клавиши
+
+создание диалогового окна для открытия изображения .jpg
+
+реализовываем ползунки, для установки значений параметров изображений
+
+реализовываем текстовые поля, для установки значений параметров изображений
+
+Начинает новую область окна Im\+Gui с заголовком "{}\+Image"{}. Флаг Im\+Gui\+Window\+Flags\+\_\+\+No\+Collapse гарантирует, что окно не может быть свернуто.
+
+Выводит изображение на экран. Метод create\+\_\+texture используется для создания текстуры изображения, а метод show\+\_\+image\+\_\+imgui -\/ для отображения этой текстуры.
+
+Устанавливает флаг if\+\_\+image\+\_\+is\+\_\+open в true, указывая, что изображение открыто.
+
+Заканчивает область окна, которую мы начали ранее.
+
+Открывает всплывающее окно под названием "{}\+Notification(exit)"{}.
+
+Начинает модальное всплывающее окно под названием "{}\+Notification(exit)"{}.
+
+Закрываем модальное всплывающее окно под названием "{}\+Notification(exit)"{}.
+
+Проверяем, отображается ли диалоговое окно для выбора папки. Если да, то выполняются действия внутри этого блока кода.
+
+Получаем полный путь к выбранному файлу.
+
+Преобразуем локальное время в строку формата "{}ГГГГ-\/ММ-\/ДД\+\_\+чч-\/мм"{}.
+
+Создаём имя файла, добавляя к дате и времени суффикс "{}\+\_\+photo\+\_\+editor\+\_\+image.\+jpg"{}.
+
+Сохраняем изображение в выбранную папку с созданным именем файла.
+
+Закрываем диалоговое окно для выбора папки.
+
+Проверяем, были ли операция успешной и не отображается ли диалоговое окно для выбора папки. Если оба условия выполняются, то открывается всплывающее окно с сообщением о успешном сохранении.
+
+Проверяем, была ли операция успешной. Если да, то открывается модальное всплывающее окно с сообщением о успешном сохранении.
+
+Заканчиваем область окна, которую мы начали ранее.
+
+рендерим приложение
+
+Завершаем работу с библиотеками Im\+Gui.
+
+Definition at line \mbox{\hyperlink{photo__editors_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+editors.\+cpp}}.
+

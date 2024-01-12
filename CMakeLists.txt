@@ -25,11 +25,28 @@ find_package(gl3w CONFIG REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Tesseract CONFIG REQUIRED)
 find_package(Leptonica CONFIG REQUIRED)
+find_package(Doxygen REQUIRED)
 
 add_subdirectory ("prj.codeforces")
 add_subdirectory ("prj.cw")
 
+#if(DOXYGEN_FOUND)
+ #   set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/prj.cw/doxygen/Doxyfile)
+  #  set(DOXYGEN_CONFIGURED_INPUT ${DOXYGEN_IN})
 
+  #  add_custom_target(doc ALL
+   #         COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_CONFIGURED_INPUT}
+    #        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+     #       COMMENT "Generating API documentation with Doxygen"
+      #      VERBATIM
+       #     )
+
+#endif()
+
+#if(DOXYGEN_FOUND)
+ #   install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/prj.cw/doxygen/rtf
+  #          DESTINATION docs)
+#endif()
 
 #install(DIRECTORY ${CMAKE_SOURCE_DIR}/prj.cw/scan/image_for_scan/
 #        DESTINATION image_for_scan

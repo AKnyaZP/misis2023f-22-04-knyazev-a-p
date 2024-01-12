@@ -1,0 +1,66 @@
+\doxysection{photo\+\_\+editors.\+h}
+\hypertarget{photo__editors_8h_source}{}\label{photo__editors_8h_source}\index{prj.cw/photo\_editor/include/photoeditor/photo\_editors.h@{prj.cw/photo\_editor/include/photoeditor/photo\_editors.h}}
+\mbox{\hyperlink{photo__editors_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00005}\mbox{\hyperlink{photo__editors_8h_adf4d73301961430d50d7edd96f92ce38}{00005}}\ \textcolor{preprocessor}{\#define\ IMGUI\_DEFINE\_MATH\_OPERATORS\ }\textcolor{comment}{//\ Определение математических\ операторов для\ ImGui}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}\ \textcolor{comment}{//\ Подключение библиотеки\ ImGui}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <iosfwd>}\ \textcolor{comment}{//\ Подключение заголовочного\ файла iosfwd\ для\ работы с\ потоками ввода-\/вывода}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_glfw.h"{}}\ \textcolor{comment}{//\ Подключение заголовочного\ файла imgui\_impl\_glfw.h\ для\ интеграции ImGui\ с GLFW}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_opengl3.h"{}}\ \textcolor{comment}{//\ Подключение заголовочного\ файла imgui\_impl\_opengl3.h\ для\ интеграции ImGui\ с OpenGL}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00010}\mbox{\hyperlink{photo__editors_8h_a1ce7c516538704e5b04a99450edc572f}{00010}}\ \textcolor{preprocessor}{\#define\ GL\_SILENCE\_DEPRECATION\ }\textcolor{comment}{//\ Определение макроса\ для\ подавления\ предупреждений об устаревших функциях\ OpenGL}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00011}\mbox{\hyperlink{photo__editors_8h_ae1023a11c695c2a037622f0655d1a949}{00011}}\ \textcolor{preprocessor}{\#define\ USE\_IMGUI\_TABLES\ }\textcolor{comment}{//\ Определение макроса\ для\ использования\ таблиц ImGui}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include<glad/glad.h>}\ \textcolor{comment}{//\ Подключение библиотеки\ glad\ для\ управления\ функциями OpenGL}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}\ \textcolor{comment}{//\ Подключение библиотеки\ GLFW\ для\ создания\ окон и\ обработки ввода}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <GL/gl3w.h>}\ \textcolor{comment}{//\ Подключение библиотеки\ gl3w\ для\ загрузки функций OpenGL}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <dialog/ImGuiFileDialog/ImGuiFileDialog.h>}\ \textcolor{comment}{//\ Подключение библиотеки\ ImGuiFileDialog\ для\ диалоговых окон файлового менеджера}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}\ \textcolor{comment}{//\ Подключение библиотеки\ OpenCV\ для\ работы с\ изображениями}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <string>}\ \textcolor{comment}{//\ Подключение стандартного класса string\ для\ работы со строками}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <random>}\ \textcolor{comment}{//\ Подключение библиотеки\ random\ для\ генерации случайных чисел}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <ctime>}\ \textcolor{comment}{//\ Подключение библиотеки\ ctime\ для\ работы со временем}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \textcolor{comment}{//\ Подключение библиотеки\ algorithm\ для\ работы с\ алгоритмами}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00025}\mbox{\hyperlink{class_editor}{00025}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_editor}{Editor}}\ \{}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00027}00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00032}\mbox{\hyperlink{class_editor_a25171eda8f9ab352f0c35df48aff9817}{00032}}\ \ \ \ \ \mbox{\hyperlink{class_editor_a25171eda8f9ab352f0c35df48aff9817}{Editor}}(GLFWwindow*\ \mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}})\ :\ \mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}}(\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}})\ \{}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ glfwMakeContextCurrent(\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}});}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ gl3wInit();}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ glfwSwapInterval(1);}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ gladLoadGL();}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_Init(\textcolor{stringliteral}{"{}\#version\ 330"{}});}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00042}00042\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00047}\mbox{\hyperlink{class_editor_af7a741bca26e73e2f4497469fcafad37}{00047}}\ \ \ \ \ \mbox{\hyperlink{class_editor_af7a741bca26e73e2f4497469fcafad37}{Editor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_editor}{Editor}}\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00052}\mbox{\hyperlink{class_editor_a89ae39523c1f166eaf1e8b8a212ab5b9}{00052}}\ \ \ \ \ \mbox{\hyperlink{class_editor_a89ae39523c1f166eaf1e8b8a212ab5b9}{Editor}}(\mbox{\hyperlink{class_editor}{Editor}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00057}\mbox{\hyperlink{class_editor_a4e81aeedb25acf57c600dd806396c6c9}{00057}}\ \ \ \ \ \mbox{\hyperlink{class_editor_a4e81aeedb25acf57c600dd806396c6c9}{\string~Editor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00062}\mbox{\hyperlink{class_editor_a89ad7d040780ed65b295d6193dd6651d}{00062}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_editor_a89ad7d040780ed65b295d6193dd6651d}{render}}()\ \{}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ ImGui::Render();}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ display\_w,\ display\_h;}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ glfwGetFramebufferSize(\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}},\ \&display\_w,\ \&display\_h);}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ glViewport(0,\ 0,\ display\_w,\ display\_h);}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ glClearColor(0.f,\ 0.f,\ 0.3,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ glfwSwapBuffers(\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}});}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00074}00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00078}\mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{00078}}\ \ \ \ \ GLFWwindow*\ \mbox{\hyperlink{class_editor_ae7e64a555b3cc2c48e0937a2ed892c9c}{window}};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00079}00079\ \};}
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{photo__editors_8h_source_l00085}00085\ \textcolor{comment}{//cmake\ -\/-\/install\ .\ -\/-\/config\ release\ -\/-\/prefix\ C:\(\backslash\)Users\(\backslash\)knyaz\_ayotgwn\(\backslash\)Desktop\(\backslash\)install\_for\_pe}}
+
+\end{DoxyCode}

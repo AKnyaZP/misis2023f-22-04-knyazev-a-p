@@ -1,0 +1,153 @@
+\doxysection{image.\+h}
+\hypertarget{image_8h_source}{}\label{image_8h_source}\index{prj.cw/photo\_editor/include/image/image.h@{prj.cw/photo\_editor/include/image/image.h}}
+\mbox{\hyperlink{image_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <iosfwd>}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <GL/gl3w.h>}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <memory>}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00015}\mbox{\hyperlink{class_image}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_image}{Image}}\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00017}\mbox{\hyperlink{class_image_a58edd1c45b4faeb5f789b0d036d02313}{00017}}\ \ \ \ \ \mbox{\hyperlink{class_image_a58edd1c45b4faeb5f789b0d036d02313}{Image}}()\ \{\}\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00018}\mbox{\hyperlink{class_image_ad7c6809645addeedbb34a8b0b4e10baf}{00018}}\ \ \ \ \ \mbox{\hyperlink{class_image_ad7c6809645addeedbb34a8b0b4e10baf}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_image}{Image}}\&)\ =\ \textcolor{keywordflow}{default};\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00019}\mbox{\hyperlink{class_image_a652480ba9540a060445a0805bcc52add}{00019}}\ \ \ \ \ \mbox{\hyperlink{class_image_a652480ba9540a060445a0805bcc52add}{Image}}(\mbox{\hyperlink{class_image}{Image}}\&\&)\ =\ \textcolor{keywordflow}{default};\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00020}\mbox{\hyperlink{class_image_ad9a2b967d96a3ea6278c85a7b1223145}{00020}}\ \ \ \ \ \mbox{\hyperlink{class_image_ad9a2b967d96a3ea6278c85a7b1223145}{\string~Image}}()\ =\ \textcolor{keywordflow}{default};\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00022}\mbox{\hyperlink{class_image_a40d3dd5e3d70d32812a7a1a7b765185d}{00022}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a40d3dd5e3d70d32812a7a1a7b765185d}{saturation}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00023}\mbox{\hyperlink{class_image_a75305822f63ca7f5fc10564999e5a73c}{00023}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a75305822f63ca7f5fc10564999e5a73c}{hue}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00024}\mbox{\hyperlink{class_image_a5324907e6472b9fdc3ba936a90d9abdf}{00024}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a5324907e6472b9fdc3ba936a90d9abdf}{exposition}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00025}\mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{00025}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00026}\mbox{\hyperlink{class_image_a30173a24529cc02ddb583664404d4c2f}{00026}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a30173a24529cc02ddb583664404d4c2f}{contrast}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00027}\mbox{\hyperlink{class_image_a3f5870999aef830d44603df7227964b8}{00027}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a3f5870999aef830d44603df7227964b8}{sharpness}}\ =\ 0.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00028}\mbox{\hyperlink{class_image_ac187ddf91e47a96acd4463eb0d5dc4b0}{00028}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_ac187ddf91e47a96acd4463eb0d5dc4b0}{brightness}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00029}\mbox{\hyperlink{class_image_a30ff0df065b74dc9a05927858090b8d6}{00029}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_image_a30ff0df065b74dc9a05927858090b8d6}{blur}}\ =\ 1;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00034}\mbox{\hyperlink{class_image_a2c5b9ba94b36ca60ebb3110c0f101417}{00034}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_image_a2c5b9ba94b36ca60ebb3110c0f101417}{default\_method}}()\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a40d3dd5e3d70d32812a7a1a7b765185d}{saturation}}\ =\ \mbox{\hyperlink{class_image_a008544cb0885f36ad4912902e3ed7478}{default\_saturation}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a75305822f63ca7f5fc10564999e5a73c}{hue}}\ =\ \mbox{\hyperlink{class_image_ac665c7aa37427a7a8b6ea23704ebcb06}{default\_hue}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a5324907e6472b9fdc3ba936a90d9abdf}{exposition}}\ =\ \mbox{\hyperlink{class_image_a325da88ac54225fdc4f9370f0d56fae6}{default\_exposition}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}}\ =\ \mbox{\hyperlink{class_image_a3dbc5dafd79d0650f271e04b8eefa5b6}{default\_colorful\_temperature}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a30173a24529cc02ddb583664404d4c2f}{contrast}}\ =\ \mbox{\hyperlink{class_image_a82b78fdef2353df8cbc314f39d9191e8}{default\_contrast}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a3f5870999aef830d44603df7227964b8}{sharpness}}\ =\ \mbox{\hyperlink{class_image_a8f482f48ec53635fe80ec53d7c3587de}{default\_sharpness}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_ac187ddf91e47a96acd4463eb0d5dc4b0}{brightness}}\ =\ \mbox{\hyperlink{class_image_a6430b3d3d0444f8e9cd2723fae1b6289}{default\_brightness}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_image_a30ff0df065b74dc9a05927858090b8d6}{blur}}\ =\ \mbox{\hyperlink{class_image_afb840fdcebd71aff7e8c05598ece72ac}{default\_blur}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00048}\mbox{\hyperlink{struct_image_1_1_mat_deleter}{00048}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_image_1_1_mat_deleter}{MatDeleter}}\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00049}\mbox{\hyperlink{struct_image_1_1_mat_deleter_a9267649b6d80b1c53faa7514781705a6}{00049}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_image_1_1_mat_deleter_a9267649b6d80b1c53faa7514781705a6}{operator()}}(cv::Mat*\ mat)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ mat-\/>release();}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ mat;}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00053}00053\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00060}\mbox{\hyperlink{class_image_afb89dae151875712e4160bdaea4c8eae}{00060}}\ \ \ \ \ cv::Mat\ \mbox{\hyperlink{class_image_afb89dae151875712e4160bdaea4c8eae}{create\_image}}(std::string\ file\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ image\ =\ std::unique\_ptr<cv::Mat,\ MatDeleter>(\textcolor{keyword}{new}\ cv::Mat(cv::imread(file\_name.c\_str())));}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (image-\/>empty())\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Не\ удалось\ открыть\ изображение.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ std::unique\_ptr<float>\ sharp\ =\ std::make\_unique<float>(\mbox{\hyperlink{class_image_a3f5870999aef830d44603df7227964b8}{sharpness}});}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ *sharp\ *=\ 7.0f;}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ cv::addWeighted(*image,\ 0.5,\ *image,\ \mbox{\hyperlink{class_image_ac187ddf91e47a96acd4463eb0d5dc4b0}{brightness}}\ -\/\ 0.5,\ 0.0,\ *image);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ cv::cvtColor(*image,\ *image,\ cv::COLOR\_BGR2RGB);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ contrast\_image\ =\ std::unique\_ptr<cv::Mat,\ MatDeleter>(\textcolor{keyword}{new}\ cv::Mat(cv::Mat::zeros(image-\/>size(),\ image-\/>type())));}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ image-\/>convertTo(*contrast\_image,\ -\/1,\ \mbox{\hyperlink{class_image_a30173a24529cc02ddb583664404d4c2f}{contrast}},\ 0);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ std::vector<cv::Mat>\ rgb\_ct;}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ cv::split(*contrast\_image,\ rgb\_ct);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}}\ >\ 1.0f)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ rgb\_ct[0]\ *=\ \mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}}\ <\ 1.0f)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ rgb\_ct[0]\ *=\ (\mbox{\hyperlink{class_image_aa590744dadafa83bf420b7d682f6787e}{colorful\_temperature}});}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ cv::merge(rgb\_ct,\ *image);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ cv::cvtColor(*image,\ *image,\ cv::COLOR\_RGB2HSV);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ std::vector<cv::Mat>\ hsv\_channels;}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ cv::split(*image,\ hsv\_channels);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ hsv\_channels[0]\ *=\ \mbox{\hyperlink{class_image_a75305822f63ca7f5fc10564999e5a73c}{hue}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ hsv\_channels[1]\ *=\ \mbox{\hyperlink{class_image_a40d3dd5e3d70d32812a7a1a7b765185d}{saturation}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ hsv\_channels[2]\ *=\ \mbox{\hyperlink{class_image_a5324907e6472b9fdc3ba936a90d9abdf}{exposition}};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ cv::merge(hsv\_channels,\ *image);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ cv::cvtColor(*image,\ *image,\ cv::COLOR\_HSV2RGB);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ cv::blur(*image,\ *image,\ cv::Size(\mbox{\hyperlink{class_image_a30ff0df065b74dc9a05927858090b8d6}{blur}},\ \mbox{\hyperlink{class_image_a30ff0df065b74dc9a05927858090b8d6}{blur}}));}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ matr[9]\{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,\ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,\ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,\ 1.3f\ +\ 0.4f\ *\ *sharp,\ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,\ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp,\ -\/0.0375f\ -\/\ 0.05f\ *\ *sharp}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ cv::Mat\ kernel\_matrix\ =\ cv::Mat(3,\ 3,\ CV\_32FC1,\ \&matr);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ cv::filter2D(*image,\ *image,\ 32,\ kernel\_matrix);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ cv::cvtColor(*image,\ *image,\ cv::COLOR\_RGB2RGBA);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ sharp.release();}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *image;}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00179}\mbox{\hyperlink{class_image_ac9b992a77e5df057c0ae2ee9d87bba3c}{00179}}\ \ \ \ \ ImTextureID\ \mbox{\hyperlink{class_image_ac9b992a77e5df057c0ae2ee9d87bba3c}{create\_texture}}(cv::Mat\ result\_image\_rgba)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ GLuint\ texture\_id;\ \textcolor{comment}{//\ ID\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ glGenTextures(1,\ \&texture\_id);\ \textcolor{comment}{//\ Генерация\ ID\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ texture\_id);\ \textcolor{comment}{//\ Привязка\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR);\ \textcolor{comment}{//\ Установка\ параметров\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA,\ result\_image\_rgba.cols,\ result\_image\_rgba.rows,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ result\_image\_rgba.data);\ \textcolor{comment}{//\ Загрузка\ данных\ изображения в текстуру}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ ImTextureID\ texture\ =\ (\textcolor{keywordtype}{void}*)(intptr\_t)texture\_id;\ \textcolor{comment}{//\ Создание\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ texture;\ \textcolor{comment}{//\ Возвращение\ текстуры}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00198}\mbox{\hyperlink{class_image_ab1b6b5ef8fa6bf5b943a159f72e61eb3}{00198}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_image_ab1b6b5ef8fa6bf5b943a159f72e61eb3}{show\_image\_imgui}}(ImTextureID\ texture)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ ImGui::Image(texture,\ ImGui::GetWindowSize());}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00206}\mbox{\hyperlink{class_image_a7631c73b2f77cdc6cafd70355747a5de}{00206}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_image_a7631c73b2f77cdc6cafd70355747a5de}{kill\_texture}}(GLuint\ texture\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ glDeleteTextures(1,\ \&texture\_id);}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00215}\mbox{\hyperlink{class_image_aa864e933d9b6a864eb77a6476c2ad3fc}{00215}}\ \ \ \ \ cv::Mat\ \mbox{\hyperlink{class_image_aa864e933d9b6a864eb77a6476c2ad3fc}{RGBAtoBGR}}(cv::Mat\ result\_image\_rgba)\ \{}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ cv::cvtColor(result\_image\_rgba,\ result\_image\_rgba,\ cv::COLOR\_RGBA2BGR);\ \textcolor{comment}{//\ Преобразование изображения}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\_image\_rgba;\ \textcolor{comment}{//\ Возвращение\ изображения}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00218}00218\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00220}00220\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00221}\mbox{\hyperlink{class_image_a008544cb0885f36ad4912902e3ed7478}{00221}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a008544cb0885f36ad4912902e3ed7478}{default\_saturation}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00222}\mbox{\hyperlink{class_image_ac665c7aa37427a7a8b6ea23704ebcb06}{00222}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_ac665c7aa37427a7a8b6ea23704ebcb06}{default\_hue}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00223}\mbox{\hyperlink{class_image_a325da88ac54225fdc4f9370f0d56fae6}{00223}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a325da88ac54225fdc4f9370f0d56fae6}{default\_exposition}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00224}\mbox{\hyperlink{class_image_a3dbc5dafd79d0650f271e04b8eefa5b6}{00224}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a3dbc5dafd79d0650f271e04b8eefa5b6}{default\_colorful\_temperature}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00225}\mbox{\hyperlink{class_image_a82b78fdef2353df8cbc314f39d9191e8}{00225}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a82b78fdef2353df8cbc314f39d9191e8}{default\_contrast}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00226}\mbox{\hyperlink{class_image_a8f482f48ec53635fe80ec53d7c3587de}{00226}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a8f482f48ec53635fe80ec53d7c3587de}{default\_sharpness}}\ =\ 0.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00227}\mbox{\hyperlink{class_image_a6430b3d3d0444f8e9cd2723fae1b6289}{00227}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_image_a6430b3d3d0444f8e9cd2723fae1b6289}{default\_brightness}}\ =\ 1.0f;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00228}\mbox{\hyperlink{class_image_afb840fdcebd71aff7e8c05598ece72ac}{00228}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_image_afb840fdcebd71aff7e8c05598ece72ac}{default\_blur}}\ =\ 1;\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00229}00229\ \};}
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{image_8h_source_l00237}00237\ }
+
+\end{DoxyCode}

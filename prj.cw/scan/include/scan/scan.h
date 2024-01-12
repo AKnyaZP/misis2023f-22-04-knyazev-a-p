@@ -1,80 +1,83 @@
-﻿// scan_gui.h : Include file for standard system include files,
-// or project specific include files.
+﻿// scan_gui.h : Файл включения для стандартных системных файлов включения или проектно-специфических файлов включения.
 
-#include<iostream>
-#include <opencv2/opencv.hpp>
-#include <string>
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
-#include <fstream>
-//#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h"
-// TODO: Reference additional headers your program requires here.
+#include<iostream> // Включение библиотеки iostream для операций ввода/вывода
+#include <opencv2/opencv.hpp> // Включение библиотеки OpenCV для обработки изображений
+#include <string> // Включение библиотеки string для манипуляции строками
+#include <tesseract/baseapi.h> // Включение библиотеки Tesseract для оптического распознавания символов (OCR)
+#include <leptonica/allheaders.h> // Включение библиотеки Leptonica для обработки изображений
+#include <fstream> // Включение библиотеки fstream для работы с файлами
+//#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h" // Закомментировано по какой-то причине
+// TODO: Ссылка на дополнительные заголовочные файлы, которые требуются вашей программе, здесь.
 
 class Image {
 public:
-    // конструктор класса Image, который принимает путь до изображения
-    Image(const std::string& imagePath) : image_path(imagePath) {} 
-    Image(const Image&) = default;
-    Image(Image&&) = default;
-    ~Image() = default;
+    // Конструктор класса Image, который принимает путь к изображению в качестве аргумента
+    Image(const std::string& imagePath) : image_path(imagePath) {}
+    Image(const Image&) = default; // Копирующий конструктор
+    Image(Image&&) = default; // Перемещающий конструктор
+    ~Image() = default; // Деструктор
 
     void image_scan() {
-        cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
+        cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR); // Чтение изображения
 
-        // Проверьте, было ли изображение успешно загружено
+        // Проверка успешной загрузки изображения
         if (img.empty()) {
-            std::cerr << "Image not found.\n";
+            std::cerr << "Изображение не найдено.\n";
             return;
         }
 
-        cv::Mat gray;
-        cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
+        cv::Mat gray; // Объявление объекта Mat для графического изображения
+        cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY); // Преобразование изображения в оттенки серого
 
-        // Применение размытия
+        // Применение размытия Гаусса
         cv::Mat blurred;
         cv::GaussianBlur(gray, blurred, cv::Size(5, 5), 0);
 
-        // Сохранение исходного изображения
+        // Сохранение оригинального изображения
         cv::Mat orig = img.clone();
 
         // Отображение результата
-        cv::imshow("Scanned Document", orig);
+        cv::imshow("Сканированный документ", orig);
         cv::waitKey(0);
 
     }
 
     void image_ocr() {
-        std::ofstream file("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/scan/output.txt");
+        std::ofstream file("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/scan/output.txt"); // Открытие файла для записи
         if (!file) {
-            std::cerr << "Unable to open file for writing\n";
+            std::cerr << "Failed to open file for writing\n";
         }
 
-        std::cout << "download image... \n";
+        std::cout << "image downloading... \n";
         // Загрузка изображения
         cv::Mat img = cv::imread(image_path, cv::IMREAD_COLOR);
         if (img.empty()) {
-            std::cerr << "Error! Image wasn't loaded \n";
+            std::cerr << "Error! The image was not loaded \n";
         }
         else
             std::cout << "Done \n";
 
-        std::cout << "image processing \n";
-        tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
-        // Initialize tesseract-ocr with English and Russian languages
+        cv::cvtColor(img, img, cv::COLOR_BGR2GRAY); // Преобразование изображения в оттенки серого
+        cv::Mat blurred;
+        cv::GaussianBlur(img, img, cv::Size(5, 5), 0); // Применение размытия Гаусса
+
+        std::cout << "image proccessing \n";
+        tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI(); // Создание нового экземпляра TessBaseAPI
+        // Инициализация tesseract-ocr с английским и русским языками
         if (api->Init("C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/scan/train", "rus+eng")) {
-            fprintf(stderr, "Could not initialize tesseract.\n");
+            fprintf(stderr, "Failed to initialize tesseract.\n");
             exit(1);
         }
 
-        // Set image data
+        // Установка данных изображения
         api->SetImage((uchar*)img.data, img.cols, img.rows, img.channels(), img.step);
 
         api->SetRectangle(0, 0, img.cols, img.rows);
 
-        // Get OCR result
+        // Получение результата OCR
         char* outText = api->GetUTF8Text();
-        printf("OCR output:\n%s", outText);
-        file << "OCR output:\n" << outText << "\n";
+        std::cout << "OCR has done its job successfully. You can see the result in the output.txt file";
+        file << "OCR Output:\n" << outText << "\n";
 
         // Clean up
         api->End();
