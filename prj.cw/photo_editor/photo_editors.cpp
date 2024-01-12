@@ -4,7 +4,7 @@
  */
 #include <include/photoeditor/photo_editors.h>
 #include <include/image/image.h>
-#include <flags.cpp>
+#include <include/flags/flags.h>
 
 int main()
 {
