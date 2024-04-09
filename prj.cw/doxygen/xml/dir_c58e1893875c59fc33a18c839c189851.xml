@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_c58e1893875c59fc33a18c839c189851" kind="dir">
+    <compoundname>C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/photo_editor</compoundname>
+    <innerfile refid="photo__editors_8cpp">photo_editors.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/knyaz_ayotgwn/source/repos/misis2023f-22-04-knyazev-a-p/prj.cw/photo_editor/"/>
+  </compounddef>
+</doxygen>

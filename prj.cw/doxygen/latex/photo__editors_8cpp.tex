@@ -1,5 +1,5 @@
-\doxysection{prj.\+cw/photo\+\_\+editor/photo\+\_\+editors.cpp File Reference}
-\hypertarget{photo__editors_8cpp}{}\label{photo__editors_8cpp}\index{prj.cw/photo\_editor/photo\_editors.cpp@{prj.cw/photo\_editor/photo\_editors.cpp}}
+\doxysection{C\+:/\+Users/knyaz\+\_\+ayotgwn/source/repos/misis2023f-\/22-\/04-\/knyazev-\/a-\/p/prj.cw/photo\+\_\+editor/photo\+\_\+editors.cpp File Reference}
+\hypertarget{photo__editors_8cpp}{}\label{photo__editors_8cpp}\index{C:/Users/knyaz\_ayotgwn/source/repos/misis2023f-\/22-\/04-\/knyazev-\/a-\/p/prj.cw/photo\_editor/photo\_editors.cpp@{C:/Users/knyaz\_ayotgwn/source/repos/misis2023f-\/22-\/04-\/knyazev-\/a-\/p/prj.cw/photo\_editor/photo\_editors.cpp}}
 
 
 Файл \doxylink{photo__editors_8cpp}{photo\+\_\+editors.\+cpp}, содержащий класс int \doxylink{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}, в котором и реализовано приложение.  
@@ -20,10 +20,6 @@ int \mbox{\hyperlink{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main
 
 
 
-Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+editors.\+cpp}}.
-
-
-
 \doxysubsection{Function Documentation}
 \Hypertarget{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{photo__editors_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 \index{photo\_editors.cpp@{photo\_editors.cpp}!main@{main}}
@@ -31,13 +27,7 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Инициализирует библиотеку GLFW и проверяет, была ли инициализация успешной
-
 Устанавливает версию Open\+GL для контекста окна
-
-Устанавливает профиль Open\+GL для контекста окна
-
-Разрешает изменение размера окна
 
 Создает новое окно с заданными параметрами
 
@@ -47,9 +37,8 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 
 Получает доступ к объекту ввода/вывода Im\+Gui
 
-Устанавливает флаги окна Im\+Gui
+Устанавливает флаги окна Im\+Gui ~\newline
 
-Устанавливает масштаб шрифта Im\+Gui
 
 Создает новые экземпляры классов Flag и Image
 
@@ -59,11 +48,7 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 
 Инициализирует флаги для управления параметрами и диалогами
 
-Опрашивает системные события
-
-Подготавливает Im\+Gui для нового кадра Open\+GL
-
-Подготавливает Im\+Gui для нового кадра GLFW
+glfw\+Poll\+Events опрашивает системные события
 
 Подготавливает Im\+Gui для нового кадра
 
@@ -71,11 +56,11 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 
 Устанавливает следующий размер окна Im\+Gui
 
-создаём окно Im\+Gui
+Создание окна Im\+Gui
 
 создаём меню-\/бар и кнопки для него
 
-реализовываем горячие клавиши
+реализация горячих клавиш в приложении
 
 создание диалогового окна для открытия изображения .jpg
 
@@ -83,31 +68,13 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 
 реализовываем текстовые поля, для установки значений параметров изображений
 
-Начинает новую область окна Im\+Gui с заголовком "{}\+Image"{}. Флаг Im\+Gui\+Window\+Flags\+\_\+\+No\+Collapse гарантирует, что окно не может быть свернуто.
-
-Выводит изображение на экран. Метод create\+\_\+texture используется для создания текстуры изображения, а метод show\+\_\+image\+\_\+imgui -\/ для отображения этой текстуры.
-
-Устанавливает флаг if\+\_\+image\+\_\+is\+\_\+open в true, указывая, что изображение открыто.
-
-Заканчивает область окна, которую мы начали ранее.
-
-Открывает всплывающее окно под названием "{}\+Notification(exit)"{}.
+реализация открытия изображения через диалоговое окно Im\+Gui\+File\+Dialog
 
 Начинает модальное всплывающее окно под названием "{}\+Notification(exit)"{}.
 
-Закрываем модальное всплывающее окно под названием "{}\+Notification(exit)"{}.
-
-Проверяем, отображается ли диалоговое окно для выбора папки. Если да, то выполняются действия внутри этого блока кода.
-
-Получаем полный путь к выбранному файлу.
+создание диалог. окна для сохранения изменённого изображения
 
 Преобразуем локальное время в строку формата "{}ГГГГ-\/ММ-\/ДД\+\_\+чч-\/мм"{}.
-
-Создаём имя файла, добавляя к дате и времени суффикс "{}\+\_\+photo\+\_\+editor\+\_\+image.\+jpg"{}.
-
-Сохраняем изображение в выбранную папку с созданным именем файла.
-
-Закрываем диалоговое окно для выбора папки.
 
 Проверяем, были ли операция успешной и не отображается ли диалоговое окно для выбора папки. Если оба условия выполняются, то открывается всплывающее окно с сообщением о успешном сохранении.
 
@@ -115,9 +82,4 @@ Definition in file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+edito
 
 Заканчиваем область окна, которую мы начали ранее.
 
-рендерим приложение
-
 Завершаем работу с библиотеками Im\+Gui.
-
-Definition at line \mbox{\hyperlink{photo__editors_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{photo__editors_8cpp_source}{photo\+\_\+editors.\+cpp}}.
-

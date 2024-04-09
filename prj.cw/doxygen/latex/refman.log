@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.12)  12 JAN 2024 23:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2024.1.12)  9 APR 2024 19:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -381,6 +381,35 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 
 ! LaTeX Error: File `stackengine.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: photoeditor
+
+! LaTeX Error: File `photoeditor.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: doxygen
+
+(C:\Users\knyaz_ayotgwn\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumit
+em.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip73
+\enit@outerparindent=\dimen186
+\enit@toks=\toks31
+\enit@inbox=\box110
+\enit@count@id=\count294
+\enitdp@description=\count295
+)
+(C:\Users\knyaz_ayotgwn\AppData\Local\Programs\MiKTeX\tex/generic/alphalph\alph
+alph.sty
+Package: alphalph 2019/12/09 v2.6 Convert numbers to letters (HO)
+
+
+! LaTeX Error: File `intcalc.sty' not found.
 
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: sty)
