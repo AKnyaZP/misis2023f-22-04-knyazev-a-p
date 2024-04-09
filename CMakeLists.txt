@@ -27,8 +27,13 @@ find_package(Tesseract CONFIG REQUIRED)
 find_package(Leptonica CONFIG REQUIRED)
 find_package(Doxygen REQUIRED)
 
+#set(ASSETS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/prj.cw/scan/assets")
+
 add_subdirectory ("prj.codeforces")
 add_subdirectory ("prj.cw")
+
+#target_compile_definitions(my_scan
+#PRIVATE ASSETS_PATH="${ASSETS_PATH}")
 
 #if(DOXYGEN_FOUND)
  #   set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/prj.cw/doxygen/Doxyfile)
@@ -48,8 +53,4 @@ add_subdirectory ("prj.cw")
   #          DESTINATION docs)
 #endif()
 
-#install(DIRECTORY ${CMAKE_SOURCE_DIR}/prj.cw/scan/image_for_scan/
-#        DESTINATION image_for_scan
-#        )
-#install(IMPORTED_RUNTIME_ARTIFACTS ${OpenCV_LIBS} glfw unofficial::gl3w::gl3w RUNTIME)
 

@@ -4,7 +4,7 @@
 #include <opencv2/opencv.hpp> // Включение библиотеки OpenCV для обработки изображений
 #include <string> // Включение библиотеки string для манипуляции строками
 #include <tesseract/baseapi.h> // Включение библиотеки Tesseract для оптического распознавания символов (OCR)
-#include <leptonica/allheaders.h> // Включение библиотеки Leptonica для обработки изображений
+//#include <leptonica/allheaders.h> // Включение библиотеки Leptonica для обработки изображений
 #include <fstream> // Включение библиотеки fstream для работы с файлами
 //#include "dialog/ImGuiFileDialog/ImGuiFileDialog.h" // Закомментировано по какой-то причине
 // TODO: Ссылка на дополнительные заголовочные файлы, которые требуются вашей программе, здесь.
@@ -60,6 +60,18 @@ public:
         cv::cvtColor(img, img, cv::COLOR_BGR2GRAY); // Преобразование изображения в оттенки серого
         cv::Mat blurred;
         cv::GaussianBlur(img, img, cv::Size(5, 5), 0); // Применение размытия Гаусса
+
+        //// Удаление шума
+        //cv::Mat denoisedImg;
+        //cv::fastNlMeansDenoisingColored(img, denoisedImg, 10, 10, 7, 21);
+
+        //// Применение размытия Гаусса
+        //cv::Mat blurred;
+        //cv::GaussianBlur(denoisedImg, blurred, cv::Size(5, 5), 0);
+
+        //// Преобразование изображения в черно-белое
+        //cv::Mat gray;
+        //cv::cvtColor(blurred, gray, cv::COLOR_BGR2GRAY);
 
         std::cout << "image proccessing \n";
         tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI(); // Создание нового экземпляра TessBaseAPI
