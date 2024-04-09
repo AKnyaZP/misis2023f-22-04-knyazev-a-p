@@ -5,7 +5,7 @@
 #include <memory> 
 
  /**
-  * @class Класс Image для работы с изображениями.
+  * @brief Класс Image для работы с изображениями.
   */
 class Image {
 public:

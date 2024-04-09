@@ -20,8 +20,7 @@
 #include <algorithm> 
 
  /**
-  * @class Editor
-  * @brief Основной класс для создания приложения photoeditor
+  * @brief Editor основной класс для создания приложения photoeditor
   */ 
 class Editor {
 
