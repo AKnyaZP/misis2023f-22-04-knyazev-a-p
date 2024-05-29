@@ -43,6 +43,7 @@
 <img src="images_for_md/13.png" width="600" height="200">
 
 <img src="images_for_md/12.png" width="600" height="300">
+
 ### Пользовательская документация
 
 #### Общая информация
